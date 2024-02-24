@@ -18,11 +18,11 @@ class Loader:
             self.clients_vector = []
             for _ in range(self.num_clients):
                 like_tmp = f.readline().strip().split(" ")
-                L = like_tmp[0]
+                L = int(like_tmp[0])
                 liked = like_tmp[1::]
                 
                 dislike_tmp = f.readline().strip().split(" ")
-                D = dislike_tmp[0]
+                D = int(dislike_tmp[0])
                 disliked = dislike_tmp[1::]
                 
                 self.clients_vector.append({"liked":liked, "disliked":disliked, "L":L, "D":D})
@@ -32,6 +32,6 @@ class Loader:
         
 
 if __name__ == "__main__":
-    load = Loader("./dataset/a_an_example.in.txt")
+    load = Loader("./dataset/e_elaborate.in.txt")
     load.print()
 
