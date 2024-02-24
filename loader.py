@@ -35,6 +35,7 @@ class Loader:
                     self.inverted_index[ing][1].append(c)
                 
                 self.clients_vector.append({"liked":liked, "disliked":disliked, "L":L, "D":D})
+        self.num_ingredienti = len(self.ingredients.keys)
                 
     def print(self, verbose=False):
         print(self.ingredients)
