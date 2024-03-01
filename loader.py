@@ -47,9 +47,12 @@ class Loader:
 
 
     def sparse_rappresentation(self):
-        sparse_liked_client_list = [{"liked":to_index([self.ingredient_index[ing] for ing in client["liked"]], self.num_ingredienti), "disliked":to_index([self.ingredient_index[ing] for ing in client["disliked"]], self.num_ingredienti)} for client in self.clients_list]
+        sparse_liked_client_list = [{"liked":[self.ingredient_index[ing] for ing in client["liked"]], "disliked":[self.ingredient_index[ing] for ing in client["disliked"]]} for client in self.clients_list]
         return sparse_liked_client_list
 
+    def binary_rappresentation(self):
+        binary = [{"liked":to_index([self.ingredient_index[ing] for ing in client["liked"]], self.num_ingredienti), "disliked":to_index([self.ingredient_index[ing] for ing in client["disliked"]], self.num_ingredienti)} for client in self.clients_list]
+        return binary
                 
     def print(self, verbose=False):
         print(f"num_ingredienti: {self.num_ingredienti}")

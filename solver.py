@@ -40,8 +40,39 @@ def calculate_score(ingredients, clients, return_good_and_bad=False):
         return (score, good_clients, bad_clients)
     return score
         
-def calculate_score_sparse(ingr, clients):
-    pass
+def calculate_score_binary(ingredients, clients, return_good_and_bad=False):
+    score = 0
+    good_clients = []
+    bad_clients = []
+    for client in clients:
+        if check_binary_client(ingredients, client):
+            score += 1
+            good_clients.append(client)
+        else:
+            bad_clients.append(client)
+    if return_good_and_bad:
+        return (score, good_clients, bad_clients)
+    return score
+
+
+def binary_union(ingredients, to_add):
+    for pos in to_add:
+        ingredients[pos] = 1
+    return ingredients
+
+def binary_disjunction(ingredients, to_remove):
+    for pos in to_remove:
+        ingredients[pos] = 0
+    return ingredients
+
+def check_binary_client(ingredients, client):
+    for elem in client['liked']:
+        if ingredients[elem] == 0:
+            return False
+    for elem in client['disliked']:
+        if ingredients[elem] == 1:
+            return False
+    return True
 
 if __name__ == "__main__":
     paths_solution = [
