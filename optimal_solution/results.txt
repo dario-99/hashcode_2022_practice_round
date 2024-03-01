@@ -1,0 +1,5 @@
+dataset/a_an_example.in.txt  2
+dataset/b_basic.in.txt  5
+dataset/c_coarse.in.txt  5
+dataset/d_difficult.in.txt  1805
+dataset/e_elaborate.in.txt  2288
